@@ -1,16 +1,18 @@
-package io.getblok.getblok_plasma.collections
+package work.lithos.plasma.collections
 
-import io.getblok.getblok_plasma.{ByteConversion, PlasmaParameters}
+
 import org.bouncycastle.util.encoders.Hex
 import org.ergoplatform.appkit.{ErgoType, ErgoValue}
 import org.ergoplatform.settings.ErgoAlgos.HF
 import scorex.crypto.authds.avltree.batch.serialization.BatchAVLProverSerializer
 import scorex.crypto.authds.avltree.batch.{BatchAVLProver, PersistentBatchAVLProver, VersionedAVLStorage}
 import scorex.crypto.hash.{Blake2b256, Digest32}
+import scorex.utils.Logger
 import sigmastate.Values.AvlTreeConstant
 import sigmastate.serialization.ValueSerializer
 import sigmastate.{AvlTreeData, AvlTreeFlags}
 import special.sigma.AvlTree
+import work.lithos.plasma.PlasmaParameters
 
 /**
  * Base Trait for all Plasma / AVL Tree based types. Providing easy conversions between on and off chain types.
@@ -49,7 +51,8 @@ trait PlasmaBase[K, V] {
    */
   def getManifest(subTreeDepth: Int = 0): Manifest = {
     implicit val hf: HF = Blake2b256
-    val plasmaSerializer = new BatchAVLProverSerializer[Digest32, Blake2b256.type]
+    implicit val logger: Logger = Logger.Default
+    val plasmaSerializer = new BatchAVLProverSerializer[Digest32, Blake2b256.type]()
     val slicedTree = plasmaSerializer.slice(prover, subTreeDepth)
     val manifest = plasmaSerializer.manifestToBytes(slicedTree._1)
     val subTrees = slicedTree._2.map(plasmaSerializer.subtreeToBytes)

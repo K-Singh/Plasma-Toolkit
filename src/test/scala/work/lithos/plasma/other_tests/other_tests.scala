@@ -1,9 +1,10 @@
-package io.getblok.getblok_plasma
+package work.lithos.plasma
 
 import com.google.common.primitives.Longs
-import org.ergoplatform.appkit.JavaHelpers.JByteRType
 import org.ergoplatform.appkit._
 import org.ergoplatform.appkit.impl.ErgoTreeContract
+import org.ergoplatform.sdk.JavaHelpers.JByteRType
+import org.ergoplatform.sdk.{ErgoId, Iso}
 import org.slf4j.{Logger, LoggerFactory}
 import scalan.RType
 import scorex.crypto.authds.ADKey

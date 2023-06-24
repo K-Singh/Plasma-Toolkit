@@ -1,14 +1,14 @@
 import sbt.url
 import xerial.sbt.Sonatype.GitHubHosting
 
-name := "getblok_plasma"
-organization := "io.github.getblok-io"
+name := "plasma-toolkit"
+organization := "io.github.k-singh"
 version := "1.0.1"
 //idePackagePrefix := Some("io.getblok.getblok_plasma")
 scalaVersion := "2.12.10"
 ThisBuild / version      := "1.0.1"
 libraryDependencies ++= Seq(
-  "org.ergoplatform" %% "ergo-appkit" % "ac116c85-SNAPSHOT",
+  "org.ergoplatform" %% "ergo-appkit" % "5.0.3",
   "org.scalatest" %% "scalatest" % "3.2.12" % "test",
   "io.swaydb" %% "swaydb" % "0.16.2",
   "io.swaydb" %% "boopickle" % "0.16.2",
@@ -16,7 +16,7 @@ libraryDependencies ++= Seq(
   "org.scalacheck" %% "scalacheck" % "1.14.3" % "test",
   "org.scalatestplus" %% "scalatestplus-scalacheck" % "3.1.0.0-RC2" % Test,
   "com.storm-enroute" %% "scalameter" % "0.9" % "test",
-  "org.slf4j" % "slf4j-jdk14" % "1.7.36",
+  "org.slf4j" % "slf4j-jdk14" % "2.0.5",
 )
 libraryDependencies ++= Seq(
   "javax.xml.bind" % "jaxb-api" % "2.4.0-b180830.0359",

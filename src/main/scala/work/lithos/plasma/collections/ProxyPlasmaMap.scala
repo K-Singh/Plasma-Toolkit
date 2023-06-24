@@ -1,12 +1,13 @@
-package io.getblok.getblok_plasma.collections
+package work.lithos.plasma.collections
 
-import io.getblok.getblok_plasma.collections.Operations.{BatchOperation, DeleteBatch, InsertBatch, LookupBatch, UpdateBatch}
-import io.getblok.getblok_plasma.{ByteConversion, PlasmaParameters}
+import Operations.{BatchOperation, DeleteBatch, InsertBatch, LookupBatch, UpdateBatch}
+
 import org.bouncycastle.util.encoders.Hex
 import scorex.crypto.authds.ADDigest
 import scorex.crypto.authds.avltree.batch._
 import scorex.crypto.hash.{Blake2b256, Digest32}
 import sigmastate.AvlTreeFlags
+import work.lithos.plasma.{ByteConversion, PlasmaParameters}
 
 import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer

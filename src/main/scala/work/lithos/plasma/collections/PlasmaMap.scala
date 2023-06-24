@@ -1,11 +1,13 @@
-package io.getblok.getblok_plasma.collections
+package work.lithos.plasma.collections
 
-import io.getblok.getblok_plasma.{ByteConversion, PlasmaParameters}
+
 import org.ergoplatform.settings.ErgoAlgos.HF
 import scorex.crypto.authds.avltree.batch._
 import scorex.crypto.authds.avltree.batch.serialization.BatchAVLProverSerializer
 import scorex.crypto.hash.{Blake2b256, Digest32}
+import scorex.utils.Logger
 import sigmastate.AvlTreeFlags
+import work.lithos.plasma.{ByteConversion, PlasmaParameters}
 
 /**
  * Basic key-value mapping with an underlying AVL Tree. PlasmaMaps represent temporary (non-persistent) AVL Trees.
@@ -94,12 +96,13 @@ class PlasmaMap[K, V](override val flags: AvlTreeFlags, override val params: Pla
    */
   def loadManifest(manifest: Manifest): PlasmaMap[K, V] = {
     implicit val hf: HF = Blake2b256
-    val plamaSerializer = new BatchAVLProverSerializer[Digest32, Blake2b256.type]
+    implicit val logger: Logger = Logger.Default
+    val plamaSerializer = new BatchAVLProverSerializer[Digest32, Blake2b256.type]()
 
-    val treeManifest = plamaSerializer.manifestFromBytes(manifest.bytes)
+    val treeManifest = plamaSerializer.manifestFromBytes(manifest.bytes, params.keySize)
     val subTrees = manifest.subTrees.map(t => plamaSerializer.subtreeFromBytes(t, params.keySize))
 
-    prover = plamaSerializer.combine(treeManifest.get, subTrees.map(_.get)).getOrElse(throw new ProverCreationException)
+    prover = plamaSerializer.combine((treeManifest.get, subTrees.map(_.get)), params.keySize, params.valueSizeOpt).getOrElse(throw new ProverCreationException)
     this
   }
 

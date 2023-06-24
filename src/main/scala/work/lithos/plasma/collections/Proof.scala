@@ -1,8 +1,8 @@
-package io.getblok.getblok_plasma.collections
+package work.lithos.plasma.collections
 
 import org.bouncycastle.util.encoders.Hex
-import org.ergoplatform.appkit.JavaHelpers.JByteRType
-import org.ergoplatform.appkit.{ErgoType, ErgoValue, Iso}
+
+import org.ergoplatform.appkit.{ErgoType, ErgoValue}
 import scorex.crypto.authds
 import sigmastate.eval.Colls
 import special.collection.Coll

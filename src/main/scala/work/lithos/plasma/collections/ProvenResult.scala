@@ -1,4 +1,4 @@
-package io.getblok.getblok_plasma.collections
+package work.lithos.plasma.collections
 
 /**
  * A ProvenResult represents the two components returned after every PlasmaMap operation

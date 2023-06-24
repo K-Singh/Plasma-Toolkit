@@ -1,4 +1,4 @@
-package io.getblok.getblok_plasma
+package work.lithos.plasma
 
 case class PlasmaVal(value: Array[Byte]) {
 

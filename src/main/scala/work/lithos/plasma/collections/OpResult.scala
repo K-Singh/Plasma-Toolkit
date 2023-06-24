@@ -1,10 +1,12 @@
-package io.getblok.getblok_plasma.collections
+package work.lithos.plasma.collections
 
-import io.getblok.getblok_plasma.ByteConversion
-import org.ergoplatform.appkit.JavaHelpers.JByteRType
-import org.ergoplatform.appkit.{ErgoType, ErgoValue, Iso}
+
+import org.ergoplatform.appkit.{ErgoType, ErgoValue}
+import org.ergoplatform.sdk.Iso
+import org.ergoplatform.sdk.JavaHelpers.JByteRType
 import sigmastate.eval.Colls
 import special.collection.Coll
+import work.lithos.plasma.ByteConversion
 
 import java.lang
 import scala.util.Try

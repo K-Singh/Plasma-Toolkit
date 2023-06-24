@@ -1,4 +1,4 @@
-package io.getblok.getblok_plasma.other_tests
+package work.lithos.plasma.other_tests
 
 import java.io.File
 import scala.util.Random

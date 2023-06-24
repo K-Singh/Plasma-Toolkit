@@ -1,18 +1,18 @@
-package io.getblok.getblok_plasma.other_tests
+package work.lithos.plasma.other_tests
 
-import io.getblok.getblok_plasma.ByteConversion.convertsLongKey
-import io.getblok.getblok_plasma.PlasmaParameters
-import io.getblok.getblok_plasma.collections.{LocalPlasmaMap, PlasmaMap}
-import io.getblok.getblok_plasma.other_tests.PlasmaMapLevelDBSuite.{TestLong, convertsTestInt, mockData}
+import work.lithos.plasma.ByteConversion.convertsLongKey
+
+import PlasmaMapLevelDBSuite.{TestLong, convertsTestInt, mockData}
 import org.bouncycastle.util.encoders.Hex
 import org.ergoplatform.appkit.InputBox
-import io.getblok.getblok_plasma.collections.Manifest
-import io.getblok.getblok_plasma.other_tests.ManifestSuite.{digestHex, manHex, subtreesHex}
+import ManifestSuite.{digestHex, manHex, subtreesHex}
 import org.scalatest.funsuite.AnyFunSuite
 import scorex.crypto.authds.avltree.batch.VersionedLDBAVLStorage
 import scorex.crypto.hash.{Blake2b256, Digest32}
 import scorex.db.LDBVersionedStore
 import sigmastate.AvlTreeFlags
+import work.lithos.plasma.PlasmaParameters
+import work.lithos.plasma.collections.{Manifest, PlasmaMap}
 
 import java.io.File
 

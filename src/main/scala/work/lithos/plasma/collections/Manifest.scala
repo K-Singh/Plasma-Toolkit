@@ -1,4 +1,4 @@
-package io.getblok.getblok_plasma.collections
+package work.lithos.plasma.collections
 
 import org.bouncycastle.util.encoders.Hex
 

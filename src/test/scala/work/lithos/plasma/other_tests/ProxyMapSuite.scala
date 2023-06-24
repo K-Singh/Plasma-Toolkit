@@ -1,10 +1,7 @@
-package io.getblok.getblok_plasma.other_tests
+package work.lithos.plasma.other_tests
 
 import com.google.common.primitives.Longs
-import io.getblok.getblok_plasma.ByteConversion.convertsLongKey
-import io.getblok.getblok_plasma.collections.{PlasmaMap, ProxyPlasmaMap}
-import io.getblok.getblok_plasma.other_tests.PlasmaMapLevelDBSuite.{TestLong, convertsTestInt, mockData}
-import io.getblok.getblok_plasma.{ByteConversion, PlasmaParameters}
+import work.lithos.plasma.ByteConversion.convertsLongKey
 import org.bouncycastle.util.encoders.Hex
 import org.ergoplatform.appkit.impl.ErgoTreeContract
 import org.ergoplatform.appkit.{Address, Eip4Token, InputBox, Parameters}
@@ -13,6 +10,9 @@ import scorex.crypto.authds.avltree.batch.VersionedLDBAVLStorage
 import scorex.crypto.hash.{Blake2b256, Digest32}
 import scorex.db.LDBVersionedStore
 import sigmastate.AvlTreeFlags
+import work.lithos.plasma.PlasmaParameters
+import work.lithos.plasma.collections.ProxyPlasmaMap
+import work.lithos.plasma.other_tests.PlasmaMapLevelDBSuite.{TestLong, mockData}
 
 import java.util.logging.FileHandler
 import scala.jdk.CollectionConverters.seqAsJavaListConverter

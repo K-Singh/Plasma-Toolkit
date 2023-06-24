@@ -1,6 +1,6 @@
-package io.getblok.getblok_plasma.collections
+package work.lithos.plasma.collections
 
-import io.getblok.getblok_plasma.{ByteConversion, PlasmaParameters}
+
 import org.bouncycastle.util.encoders.Hex
 import org.ergoplatform.appkit.{ErgoType, ErgoValue}
 import org.ergoplatform.settings.ErgoAlgos.HF
@@ -12,6 +12,7 @@ import sigmastate.Values.AvlTreeConstant
 import sigmastate.serialization.ValueSerializer
 import sigmastate.{AvlTreeData, AvlTreeFlags}
 import special.sigma.{AvlTree, PreHeaderRType}
+import work.lithos.plasma.{ByteConversion, PlasmaParameters}
 
 import java.io.File
 import scala.collection.mutable.ArrayBuffer

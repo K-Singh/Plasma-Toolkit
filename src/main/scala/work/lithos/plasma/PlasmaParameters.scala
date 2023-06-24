@@ -1,4 +1,4 @@
-package io.getblok.getblok_plasma
+package work.lithos.plasma
 
 import scorex.crypto.authds.avltree.batch.NodeParameters
 

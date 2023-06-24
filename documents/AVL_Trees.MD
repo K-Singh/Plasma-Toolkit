@@ -72,7 +72,7 @@ On-chain:
 - remove: Remove key-value pairs from the tree by providing a collection of `Coll[Byte]`, where each `Coll[Byte]` is a serialized key that already exists in the tree.
 - getMany: Using a provided collection of `Coll[Byte]`s representing serialized keys, find the values associated with the keys in the tree. You may use `.get()` to obtain just a single value using a single key.
 
-Other operations technically exist in the off-chain code like `InsertOrUpdate`. This operation is not provided in `GetBlok Plasma` because no analogous 
+Other operations technically exist in the off-chain code like `InsertOrUpdate`. This operation is not provided in `Plasma-Toolkit` because no analogous 
 operation exists in ErgoScript. As stated earlier, ALL on-chain operations require a tree proof in order to be performed correctly.
 The tree proof provided MUST be the same proof you obtained from your off-chain code while performing the same operation. (With one exception we will go into later).
 Providing an invalid tree proof will cause your contract to fail in all circumstances, so be sure to use
@@ -149,7 +149,7 @@ the proof needed is very small (Less of the tree needs to be traversed, because 
 are already right next to each other). One simple method to do this in Scala is the following:
 
 ```scala
-import org.ergoplatform.appkit.ErgoId
+import org.ergoplatform.sdk.ErgoId
 implicit val ergoIdKeys: Seq[ErgoId] // Example for key collection type, can be anything as long as it can be serialized to bytes
 
 // These sorted keys will allow for efficient proof generation when doing lookups
