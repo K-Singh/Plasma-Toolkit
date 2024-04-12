@@ -4,7 +4,7 @@ package work.lithos.plasma.collections
 import scorex.crypto.authds.avltree.batch.{BatchAVLProver, Insert, Lookup, PersistentBatchAVLProver, Remove, Update, VersionedAVLStorage}
 import scorex.crypto.authds.{ADKey, ADValue}
 import scorex.crypto.hash.{Blake2b256, Digest32}
-import sigmastate.AvlTreeFlags
+import sigma.data.AvlTreeFlags
 import supertagged.@@
 import work.lithos.plasma.{ByteConversion, PlasmaParameters}
 

@@ -6,7 +6,7 @@ import scorex.crypto.authds.avltree.batch._
 import scorex.crypto.authds.avltree.batch.serialization.BatchAVLProverSerializer
 import scorex.crypto.hash.{Blake2b256, Digest32}
 import scorex.utils.Logger
-import sigmastate.AvlTreeFlags
+import sigma.data.AvlTreeFlags
 import work.lithos.plasma.{ByteConversion, PlasmaParameters}
 
 /**

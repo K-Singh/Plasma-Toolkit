@@ -8,7 +8,7 @@ version := "1.0.1"
 scalaVersion := "2.12.10"
 ThisBuild / version      := "1.0.1"
 libraryDependencies ++= Seq(
-  "org.ergoplatform" %% "ergo-appkit" % "5.0.3",
+  "org.ergoplatform" %% "ergo-appkit" % "1381ea75-SNAPSHOT",
   "org.scalatest" %% "scalatest" % "3.2.12" % "test",
   "io.swaydb" %% "swaydb" % "0.16.2",
   "io.swaydb" %% "boopickle" % "0.16.2",
