@@ -11,13 +11,14 @@ import org.scalatest.funsuite.AnyFunSuite
 import scorex.crypto.authds.avltree.batch.VersionedLDBAVLStorage
 import scorex.crypto.hash.{Blake2b256, Digest32}
 import scorex.db.LDBVersionedStore
-import sigmastate.{AvlTreeFlags, Values}
+import sigma.data.AvlTreeFlags
 import work.lithos.plasma.{ByteConversion, PlasmaParameters}
 import work.lithos.plasma.collections.PlasmaMap
 
 import java.io.File
 import scala.collection.immutable
 import scala.jdk.CollectionConverters.seqAsJavaListConverter
+import sigma.ast.ErgoTree
 
 class PlasmaMapLevelDBSuite extends AnyFunSuite {
   var swayStore: LDBVersionedStore = _
@@ -116,7 +117,7 @@ object PlasmaMapLevelDBSuite {
   val mockData: Seq[(Long, TestLong)] = for(i <- 1L to 1000) yield i -> TestLong(i)
 
   def ergoId(str: String):    ErgoId = ErgoId.create(str)
-  def ergoTree(str: String):  Values.ErgoTree = Address.create(str).getErgoAddress.script
+  def ergoTree(str: String):  ErgoTree = Address.create(str).getErgoAddress.script
 
 }
 

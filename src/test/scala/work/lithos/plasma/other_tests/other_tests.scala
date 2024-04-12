@@ -4,17 +4,17 @@ import com.google.common.primitives.Longs
 import org.ergoplatform.appkit._
 import org.ergoplatform.appkit.impl.ErgoTreeContract
 import org.ergoplatform.sdk.JavaHelpers.JByteRType
-import org.ergoplatform.sdk.{ErgoId, Iso}
+import org.ergoplatform.sdk.{ErgoId}
 import org.slf4j.{Logger, LoggerFactory}
-import scalan.RType
 import scorex.crypto.authds.ADKey
-import sigmastate.eval.Colls
-import special.collection.Coll
-import special.sigma.AvlTree
+import sigma.Colls
+import sigma.Coll
+import sigma.AvlTree
 import supertagged.@@
 
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Random
+import org.ergoplatform.appkit.scalaapi.Iso
 
 package object other_tests {
   val ergoClient: ErgoClient = RestApiErgoClient.create("http://188.34.207.91:9053/", NetworkType.MAINNET, "", "")
@@ -54,7 +54,7 @@ package object other_tests {
     ergoClient.execute{
       ctx =>
         val ergoValue: ErgoValue[Coll[(Coll[java.lang.Byte], Coll[java.lang.Byte])]] =
-          ErgoValue.of(Colls.fromArray(keys.toArray.map(k => Colls.fromArray(k._1).map(Iso.jbyteToByte.from) -> Colls.fromArray(k._2).map(Iso.jbyteToByte.from))),
+          ErgoValue.of(Colls.fromArray(keys.toArray.map(k => Colls.fromArray(k._1).map(Iso.isoByte.toJava) -> Colls.fromArray(k._2).map(Iso.isoByte.toJava))),
           ErgoType.pairType(ErgoType.collType(ErgoType.byteType()), ErgoType.collType(ErgoType.byteType())))
         val avlBox = ctx.newTxBuilder().outBoxBuilder()
           .value(value / 2)
