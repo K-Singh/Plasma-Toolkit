@@ -8,15 +8,17 @@ import scorex.crypto.authds.avltree.batch.serialization.BatchAVLProverSerializer
 import scorex.crypto.authds.avltree.batch.{PersistentBatchAVLProver, VersionedAVLStorage}
 import scorex.crypto.authds.{ADDigest, ADValue}
 import scorex.crypto.hash.{Blake2b256, Digest32}
-import sigmastate.Values.AvlTreeConstant
-import sigmastate.serialization.ValueSerializer
-import sigmastate.{AvlTreeData, AvlTreeFlags}
-import special.sigma.{AvlTree, PreHeaderRType}
 import work.lithos.plasma.{ByteConversion, PlasmaParameters}
 
 import java.io.File
 import scala.collection.mutable.ArrayBuffer
 import scala.util.Try
+import sigma.data.AvlTreeFlags
+import sigma.AvlTree
+import sigma.data.AvlTreeData
+import sigma.serialization.ValueSerializer
+import sigma.ast.AvlTreeConstant
+import sigma.Colls
 
 /**
  * Base Trait for all Plasma / AVL Tree based types. Providing easy conversions between on and off chain types.
@@ -29,7 +31,7 @@ trait LocalPlasmaBase[K, V] {
   val params: PlasmaParameters
   lazy val ergoType: ErgoType[AvlTree] = ErgoType.avlTreeType()
 
-  def ergoAVLData:    AvlTreeData = AvlTreeData(digest, flags, params.keySize , params.valueSizeOpt)
+  def ergoAVLData:    AvlTreeData = AvlTreeData(Colls.fromArray(digest), flags, params.keySize , params.valueSizeOpt)
   def ergoAVLTree: AvlTree     = sigmastate.eval.avlTreeDataToAvlTree(ergoAVLData)
   def serialize:   Array[Byte] = ValueSerializer.serialize(AvlTreeConstant(ergoAVLTree))
 

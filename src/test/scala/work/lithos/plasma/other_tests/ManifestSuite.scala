@@ -10,7 +10,7 @@ import org.scalatest.funsuite.AnyFunSuite
 import scorex.crypto.authds.avltree.batch.VersionedLDBAVLStorage
 import scorex.crypto.hash.{Blake2b256, Digest32}
 import scorex.db.LDBVersionedStore
-import sigmastate.AvlTreeFlags
+import sigma.data.AvlTreeFlags
 import work.lithos.plasma.PlasmaParameters
 import work.lithos.plasma.collections.{Manifest, PlasmaMap}
 

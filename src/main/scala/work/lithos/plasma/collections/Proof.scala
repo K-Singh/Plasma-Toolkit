@@ -4,8 +4,8 @@ import org.bouncycastle.util.encoders.Hex
 
 import org.ergoplatform.appkit.{ErgoType, ErgoValue}
 import scorex.crypto.authds
-import sigmastate.eval.Colls
-import special.collection.Coll
+import sigma.Colls
+import sigma.Coll
 import supertagged.@@
 
 import java.lang

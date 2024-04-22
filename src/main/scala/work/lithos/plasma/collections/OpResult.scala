@@ -2,14 +2,15 @@ package work.lithos.plasma.collections
 
 
 import org.ergoplatform.appkit.{ErgoType, ErgoValue}
-import org.ergoplatform.sdk.Iso
 import org.ergoplatform.sdk.JavaHelpers.JByteRType
-import sigmastate.eval.Colls
-import special.collection.Coll
+import org.ergoplatform.sdk.JavaHelpers.UniversalConverter
+import sigma.Colls
+import sigma.Coll
 import work.lithos.plasma.ByteConversion
 
 import java.lang
 import scala.util.Try
+import org.ergoplatform.appkit.scalaapi.Iso
 
 /**
  * A wrapper class that holds the result of applying an operation on a certain key or key-value pair.
@@ -32,7 +33,7 @@ case class OpResult[V](tryOp: Try[Option[V]])(implicit converter: ByteConversion
   def ergoValue: ErgoValue[Coll[java.lang.Byte]] = {
     ErgoValue.of(Colls.fromArray(
       converter.convertToBytes(tryOp.getOrElse(throw new NoResultException).getOrElse(throw new NoResultException)))
-      .map(Iso.jbyteToByte.from)
+      .map(Iso.isoByte.toJava)
       , ergoType)
   }
 

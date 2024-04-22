@@ -5,9 +5,9 @@ import org.bouncycastle.util.encoders.Hex
 import org.ergoplatform.appkit.Address
 import org.ergoplatform.sdk.ErgoId
 import scorex.crypto.authds.{ADDigest, ADKey, ADValue}
-import sigmastate.Values
-import sigmastate.serialization.ErgoTreeSerializer
 import supertagged.@@
+import sigma.ast.ErgoTree
+import sigma.serialization.ErgoTreeSerializer
 
 trait ByteConversion[T] {
 
@@ -60,10 +60,10 @@ object ByteConversion {
     override def convertFromBytes(bytes: Array[Byte]): ErgoId = new ErgoId(bytes)
   }
 
-  implicit val convertsErgoTree: ByteConversion[Values.ErgoTree] = new ByteConversion[Values.ErgoTree] {
-    override def convertToBytes(t: Values.ErgoTree): Array[Byte] = t.bytes
+  implicit val convertsErgoTree: ByteConversion[ErgoTree] = new ByteConversion[ErgoTree] {
+    override def convertToBytes(t: ErgoTree): Array[Byte] = t.bytes
 
-    override def convertFromBytes(bytes: Array[Byte]): Values.ErgoTree = ErgoTreeSerializer.DefaultSerializer.deserializeErgoTree(bytes)
+    override def convertFromBytes(bytes: Array[Byte]): ErgoTree = ErgoTreeSerializer.DefaultSerializer.deserializeErgoTree(bytes)
   }
 
   implicit val convertsArrBytes: ByteConversion[Array[Byte]] = new ByteConversion[Array[Byte]] {
