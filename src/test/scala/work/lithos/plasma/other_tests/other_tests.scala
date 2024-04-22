@@ -17,7 +17,7 @@ import scala.util.Random
 import org.ergoplatform.appkit.scalaapi.Iso
 
 package object other_tests {
-  val ergoClient: ErgoClient = RestApiErgoClient.create("http://188.34.207.91:9053/", NetworkType.MAINNET, "", "")
+  val ergoClient: ErgoClient = RestApiErgoClient.create("http://159.65.11.55:9053/", NetworkType.MAINNET, "", RestApiErgoClient.defaultMainnetExplorerUrl)
   val creatorAddress: Address = Address.create("4MQyML64GnzMxZgm")
   val dummyTxId = "ce552663312afc2379a91f803c93e2b10b424f176fbc930055c10def2fd88a5d"
   val dummyToken = "f5cc03963b64d3542b8cea49d5436666a97f6a2d098b7d3b2220e824b5a91819"
